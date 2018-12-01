@@ -55,17 +55,20 @@ public class Group {
      *
      * @param surname
      */
-    public void searchStudentBySurname(String surname) {
+    public String searchStudentBySurname(String surname) {
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < students.length; i++) {
             try {
                 if (students[i].getSurname().equals(surname)) {
-                    System.out.println("Student " + surname + " found");
-                    return;
+                    sb.append("Student ").append(surname).append(" found at position ").append(i).append("\n");
                 }
             } catch (NullPointerException e) {
             }
         }
-        System.out.println("Student " + surname + " not found");
+        if (sb.length() == 0) {
+            sb.append("Student ").append(surname).append(" not found");
+        }
+        return sb.toString();
     }
 
 
@@ -82,14 +85,11 @@ public class Group {
         while (!isSorted) {
             isSorted = true;
             for (int i = 0; i < students.length - 1; i++) {
-                try {
-                    if (students[i].getSurname().compareTo(students[i + 1].getSurname()) > 0) {
-                        isSorted = false;
-                        temp = students[i];
-                        students[i] = students[i + 1];
-                        students[i + 1] = temp;
-                    }
-                } catch (NullPointerException e) {
+                if (students[i].getSurname().compareTo(students[i + 1].getSurname()) > 0) {
+                    isSorted = false;
+                    temp = students[i];
+                    students[i] = students[i + 1];
+                    students[i + 1] = temp;
                 }
             }
         }

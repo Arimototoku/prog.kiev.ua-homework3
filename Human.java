@@ -1,5 +1,7 @@
 package ua.i.sonne.homework3;
 
+import java.util.Objects;
+
 public class Human {
 
     private String name;
@@ -67,6 +69,17 @@ public class Human {
         this.male = male;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Human)) return false;
+        Human human = (Human) o;
+        return getAge() == human.getAge() &&
+                isMale() == human.isMale() &&
+                getName().equals(human.getName()) &&
+                getSurname().equals(human.getSurname()) &&
+                getPatronymic().equals(human.getPatronymic());
+    }
 
     @Override
     public String toString() {
