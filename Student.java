@@ -43,11 +43,6 @@ public class Student extends Human {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(getRecordBook(), getGroup());
-    }
-
-    @Override
     public String toString() {
         return "Student{" +
                 "recordBook=" + recordBook +
