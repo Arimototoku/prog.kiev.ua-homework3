@@ -33,11 +33,9 @@ public class Student extends Human {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o.getClass() == Student.class) return false;
-        if (!super.equals(o)) return false;
-        Student student = (Student) o;
+    public boolean equals(Object otherObject) {
+        if (!super.equals(otherObject)) return false;
+        Student student = (Student) otherObject;
         return getRecordBook() == student.getRecordBook() &&
                 getGroup().equals(student.getGroup());
     }

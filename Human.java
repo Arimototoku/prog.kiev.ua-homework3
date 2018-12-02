@@ -70,15 +70,16 @@ public class Human {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Human)) return false;
-        Human human = (Human) o;
-        return getAge() == human.getAge() &&
-                isMale() == human.isMale() &&
-                getName().equals(human.getName()) &&
-                getSurname().equals(human.getSurname()) &&
-                getPatronymic().equals(human.getPatronymic());
+    public boolean equals(Object otherObject) {
+        if (this == otherObject) return true;
+        if (otherObject == null) return false;
+        if (getClass() != otherObject.getClass()) return false;
+        Human other = (Human) otherObject;
+        return age == other.age &&
+                male == other.male &&
+                Objects.equals(name, other.name) &&
+                Objects.equals(surname, other.surname) &&
+                Objects.equals(patronymic, other.patronymic);
     }
 
     @Override

@@ -1,7 +1,5 @@
 package ua.i.sonne.homework3;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         Student petrov = new Student("Ivan", "Petrov", "Sidorovich", 22, true, 12345, "PM212");
