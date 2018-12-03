@@ -39,7 +39,9 @@ public class Group {
     public void removeStudent(Student student) {
         for (int i = 0; i < students.length; i++) {
             try {
-                if (students[i].equals(student)) {
+                if (students[i].getSurname().equals(student.getSurname()) &&
+                        students[i].getName().equals(student.getName()) &&
+                        students[i].getPatronymic().equals(student.getPatronymic())) {
                     students[i] = null;
                     System.out.println("Student " + student + " removed");
                     return;
@@ -55,20 +57,16 @@ public class Group {
      *
      * @param surname
      */
-    public String searchStudentBySurname(String surname) {
-        StringBuilder sb = new StringBuilder();
+    public Student searchStudentBySurname(String surname) {
         for (int i = 0; i < students.length; i++) {
             try {
                 if (students[i].getSurname().equals(surname)) {
-                    sb.append("Student ").append(surname).append(" found at position ").append(i).append("\n");
+                    return students[i];
                 }
             } catch (NullPointerException e) {
             }
         }
-        if (sb.length() == 0) {
-            sb.append("Student ").append(surname).append(" not found");
-        }
-        return sb.toString();
+        return null;
     }
 
 

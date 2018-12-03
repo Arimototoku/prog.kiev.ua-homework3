@@ -70,19 +70,6 @@ public class Human {
     }
 
     @Override
-    public boolean equals(Object otherObject) {
-        if (this == otherObject) return true;
-        if (otherObject == null) return false;
-        if (getClass() != otherObject.getClass()) return false;
-        Human other = (Human) otherObject;
-        return age == other.age &&
-                male == other.male &&
-                Objects.equals(name, other.name) &&
-                Objects.equals(surname, other.surname) &&
-                Objects.equals(patronymic, other.patronymic);
-    }
-
-    @Override
     public String toString() {
         return  "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +

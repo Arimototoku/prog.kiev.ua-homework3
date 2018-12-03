@@ -33,14 +33,6 @@ public class Student extends Human {
     }
 
     @Override
-    public boolean equals(Object otherObject) {
-        if (!super.equals(otherObject)) return false;
-        Student other = (Student) otherObject;
-        return getRecordBook() == other.getRecordBook() &&
-                getGroup().equals(other.getGroup());
-    }
-
-    @Override
     public String toString() {
         return "Student{" +
                 "recordBook=" + recordBook +
